@@ -6,8 +6,6 @@
         return $dados;
     }
 
-    //mail('heldermartinscarvalho@gmail.com', 'Assunto', 'Menssagem', 'From: heldercarvalho.esaf@gmail.com');
-
     if($_POST){
         if(empty($_POST['inputPrimeiroNome'])){
             $primeiroNomeErro='É obrigatório introduzir um Primeiro Nome!';
@@ -68,4 +66,13 @@
     </ul>
 <?php
     }
+    $mensagem='
+    Olá '.$primeiroNome.' '.$ultimoNome.',
+    
+    É bom saber que os nossos utilizadores de '.$localidade.' nos enviam ficheiros com a extenção "'.pathinfo($caminho, PATHINFO_EXTENSION).'".
+    
+    Cumprimentos,
+    Hélder Carvalho, Nº 15310';
+
+    mail($email, 'TP1 Form', $mensagem, 'From: heldercarvalho.esaf@gmail.com');
 ?>
